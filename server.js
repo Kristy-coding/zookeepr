@@ -3,7 +3,7 @@ const { execPath, allowedNodeEnvironmentFlags } = require('process');
 
 const { animals } = require('./data/animals.json');
 
-const PORT = process.env.PORT || 80;
+const PORT = process.env.PORT || 3001;
 //to start the server instantiate the server and then tell it to listen for requests
 //We assign express() to the app variable so that we can later chain on methods to the Express.js server. 
 const app = express();
