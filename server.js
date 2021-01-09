@@ -56,6 +56,8 @@ function findById(id, animalsArray) {
     const result = animalsArray.filter(animal => animal.id === id)[0];
     return result;
   }
+
+//----------------- set up routes----------------//
 // get() method requires two arguments. The first is a string that describes the route the client will have to fetch from. The second is a callback function that will execute every time that route is accessed with a GET request.
 //using the send() method from the res parameter (short for response) to send the string Hello! to our client.
 // then we changes send() to json to send large data 
