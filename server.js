@@ -3,6 +3,7 @@ const { execPath, allowedNodeEnvironmentFlags } = require('process');
 
 const { animals } = require('./data/animals.json');
 
+// heroku sets the environment PORT to 80 (heroku runs off 80, process.env.PORT  allow for that?)
 const PORT = process.env.PORT || 3001;
 //to start the server instantiate the server and then tell it to listen for requests
 //We assign express() to the app variable so that we can later chain on methods to the Express.js server. 
@@ -68,6 +69,7 @@ app.get('/api/animals', (req, res) => {
     res.json(results)
 });
 
+//Param properties are determined by the value following : in the route
 app.get('/api/animals/:id', (req, res) => {
     const result = findById(req.params.id, animals);
     if (result) {
