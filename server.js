@@ -3,6 +3,7 @@ const { execPath, allowedNodeEnvironmentFlags } = require('process');
 
 const { animals } = require('./data/animals.json');
 
+const PORT = process.env.PORT || 3001;
 //to start the server instantiate the server and then tell it to listen for requests
 //We assign express() to the app variable so that we can later chain on methods to the Express.js server. 
 const app = express();
@@ -64,7 +65,7 @@ app.get('/api/animals', (req, res) => {
     res.json(results)
 });
 //chain the listen() method onto our server to make our server listen
-app.listen(3001, () => {
+app.listen(PORT, () => {
     console.log('API server now on port 3001!')
 });
 
