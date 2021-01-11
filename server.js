@@ -22,7 +22,12 @@ app.use(express.urlencoded({ extended: true}));
 // parse incoming JSON data 
 //The express.json() method we used takes incoming POST data in the form of JSON and parses it into the req.body JavaScript object. Both of the above middleware functions need to be set up every time you create a server that's looking to accept POST data.
 app.use(express.json());
-//------------------------//
+
+// middleware that instructs the server to make /public files readily available (css, font end js etc.)
+app.use(express.static('public'));
+//the express.static() method. The way it works is that we provide a file path to a location in our application (in this case, the public folder) and instruct the server to make these files static resources. This means that all of our front-end code can now be accessed without having a specific server endpoint created for it!
+
+//----------Middleware end --------------//
 
 //This function will take in req.query as an argument and filter through the animals accordingly, returning the new filtered array.
 function filterByQuery(query, animalsArray) {
@@ -105,7 +110,9 @@ function validateAnimal(animal) {
 
 
 
-//----------------- set up routes----------------//
+//----------------- routes/ creating API endpoints ----------------//
+//We can assume that a route that has the term api in it will deal in transference of JSON data, whereas a more normal-looking endpoint such as /animals or '/' should serve an HTML page
+
 // get() method requires two arguments. The first is a string that describes the route the client will have to fetch from. The second is a callback function that will execute every time that route is accessed with a GET request.
 //using the send() method from the res parameter (short for response) to send the string Hello! to our client.
 // then we changes send() to json to send large data 
@@ -147,6 +154,24 @@ app.post('/api/animals',(req, res) => {
     }
 });
 
+// ---SERVING AN HTML PAGEs/ creating html endpoints  -----//
+
+// ----- get index.html to be served from our Express.js server-----
+// '/' route points us to the root route of the server, this is the route used to create a homepage for a server 
+// this GET route has just one job to do, and that is to respond with an HTML page to display in the browser. So instead of using res.json(), we're using res.sendFile(), and all we have to do is indicate the path to find the file we want our server to read and send back to the client.
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/index.html'));
+});
+
+// We can assume that a route that has the term api in it will deal in transference of JSON data, whereas a more normal-looking endpoint such as /animals or '/' should serve an HTML page. Express.js isn't opinionated about how routes should be named and organized, so that's a system developers must create
+app.get('/animals', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/animals.html'));
+  });
+
+app.get('/zookeepers', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/zookeepers.html'));
+});
+
 //-----------routes end-----------------------//
 
 //chain the listen() method onto our server to make our server listen
@@ -154,4 +179,4 @@ app.listen(PORT, () => {
     console.log(`API server now on port ${PORT}!`)
 });
 
-// after the above code run npm start then visit http://localhost:3001/api/animals to see the data on the port--- we now have a working route on our server
+// after the above code run npm start then visit http://localhost:3001 to see the data on the port---

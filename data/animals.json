@@ -135,6 +135,35 @@
         "hungry"
       ],
       "id": "13"
+    },
+    {
+      "name": "Max",
+      "species": "cat",
+      "diet": "carnivore",
+      "personalityTraits": [
+        "loving"
+      ],
+      "id": "14"
+    },
+    {
+      "name": "Max",
+      "species": "cat",
+      "diet": "herbivore",
+      "personalityTraits": [
+        "hungry",
+        "loving"
+      ],
+      "id": "15"
+    },
+    {
+      "name": "Pop Corn",
+      "species": "tiger",
+      "diet": "carnivore",
+      "personalityTraits": [
+        "loving",
+        "goofy"
+      ],
+      "id": "16"
     }
   ]
 }
