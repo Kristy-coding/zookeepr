@@ -112,24 +112,6 @@
     {
       "name": "Larry",
       "species": "lemur",
-      "diet": "omnivore",
-      "personalityTraits": [
-        "hungry"
-      ],
-      "id": "11"
-    },
-    {
-      "name": "Larry",
-      "species": "lemur",
-      "diet": "omnivore",
-      "personalityTraits": [
-        "hungry"
-      ],
-      "id": "12"
-    },
-    {
-      "name": "Larry",
-      "species": "lemur",
       "diet": "fdsfsf",
       "personalityTraits": [
         "hungry"
@@ -146,16 +128,6 @@
       "id": "14"
     },
     {
-      "name": "Max",
-      "species": "cat",
-      "diet": "herbivore",
-      "personalityTraits": [
-        "hungry",
-        "loving"
-      ],
-      "id": "15"
-    },
-    {
       "name": "Pop Corn",
       "species": "tiger",
       "diet": "carnivore",
@@ -164,6 +136,16 @@
         "goofy"
       ],
       "id": "16"
-    }
+    },
+    {
+      "name": "Sully",
+      "species": "Lion",
+      "diet": "herbivore",
+      "personalityTraits": [
+        "loving",
+        "goofy"
+      ],
+      "id": "17"
+    }  
   ]
 }
